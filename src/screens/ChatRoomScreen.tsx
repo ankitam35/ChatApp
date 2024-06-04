@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import {
   View,
   Text,
@@ -8,20 +9,20 @@ import {
   TouchableOpacity,
   Alert,
   Image,
-  Linking
+  Linking,
 } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialIcons';
 import {useDispatch, useSelector} from 'react-redux';
 import {fetchChatHistoryStart, addMessage} from '../features/chat/chatSlice';
 import {getChatHistory} from '../api/selectors';
 import Clipboard from '@react-native-clipboard/clipboard';
 import {launchImageLibrary} from 'react-native-image-picker';
 
-const ChatRoomScreen = ({route}) => {
+const ChatRoomScreen = ({route}: any) => {
   const {conversationId} = route.params;
   const dispatch = useDispatch();
   const chatHistory = useSelector(getChatHistory);
   const messages = chatHistory[conversationId] || [];
+
   const [text, setText] = useState('');
   const [image, setImage] = useState(null);
 
@@ -43,7 +44,7 @@ const ChatRoomScreen = ({route}) => {
     }
   };
 
-  const handleLongPress = (message) => {
+  const handleLongPress = (message: string) => {
     Clipboard.setString(message);
     Alert.alert('', 'Copied to Clipboard');
   };
@@ -52,8 +53,8 @@ const ChatRoomScreen = ({route}) => {
     const options = {
       mediaType: 'photo',
     };
-  
-    launchImageLibrary(options, (response) => {
+
+    launchImageLibrary(options, response => {
       if (response.didCancel) {
         console.log('User cancelled image picker');
       } else if (response.error) {
@@ -69,9 +70,11 @@ const ChatRoomScreen = ({route}) => {
     Linking.openURL(phoneNumber).catch(err => console.error('Error:', err));
   };
 
-  const renderItem = ({item}:any) => (
+  const renderItem = ({item}: any) => (
     <TouchableOpacity
-      style={item.sender === 'currentUser' ? styles.myMessage : styles.theirMessage}
+      style={
+        item.sender === 'currentUser' ? styles.myMessage : styles.theirMessage
+      }
       onLongPress={() => handleLongPress(item.message)}>
       <Text>{item.message}</Text>
       {item.image && <Image source={{uri: item.image}} style={styles.image} />}

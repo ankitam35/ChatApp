@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
+import React, {useState} from 'react';
+import {View, Text, TextInput, Button, StyleSheet} from 'react-native';
 
-const LoginScreen = ({ navigation }) => {
+const LoginScreen = ({navigation}: any) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
   const handleLogin = () => {
-    // Perform login logic
     navigation.navigate('Conversations');
   };
 
@@ -28,7 +27,10 @@ const LoginScreen = ({ navigation }) => {
       />
       <Button title="Login" onPress={handleLogin} />
       <View style={styles.marginTop5}>
-        <Button title="Register"  onPress={() => navigation.navigate('Register')} />
+        <Button
+          title="Register"
+          onPress={() => navigation.navigate('Register')}
+        />
       </View>
     </View>
   );
@@ -52,8 +54,8 @@ const styles = StyleSheet.create({
     padding: 8,
   },
   marginTop5: {
-    marginTop: 5
-  }
+    marginTop: 5,
+  },
 });
 
 export default LoginScreen;

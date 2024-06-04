@@ -55,7 +55,7 @@ const chatSlice = createSlice({
       state.error = action.payload;
     },
     addMessage(state, action: PayloadAction<{ conversationId: number, message: Message }>) {
-      state.chatHistory[action.payload.conversationId].push(action.payload.message);
+      state.chatHistory[action.payload.conversationId].unshift(action.payload.message);
       const conversation = state.conversations.find(convo => convo.id === action.payload.conversationId);
       if (conversation) {
         conversation.lastMessage = action.payload.message.message;
