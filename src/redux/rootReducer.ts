@@ -1,6 +1,6 @@
 // rootReducer.ts
 import { combineReducers } from 'redux';
-import chatReducer from '../features/chat/chatSlice';
+import chatReducer from '../slices/chatSlice';
 
 const rootReducer = combineReducers({
   chat: chatReducer,

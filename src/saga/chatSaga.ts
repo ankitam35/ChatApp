@@ -1,5 +1,5 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
-import { fetchConversations, fetchChatHistory } from '../../api/chat';
+import { fetchConversations, fetchChatHistory } from '../api/chat';
 import {
   fetchConversationsStart,
   fetchConversationsSuccess,
@@ -7,13 +7,13 @@ import {
   fetchChatHistoryStart,
   fetchChatHistorySuccess,
   fetchChatHistoryFailure,
-} from './chatSlice';
+} from '../slices/chatSlice';
 
 function* fetchConversationsSaga():any {
   try {
     const conversations = yield call(fetchConversations);
     yield put(fetchConversationsSuccess(conversations));
-  } catch (error) {
+  } catch (error:any) {
     yield put(fetchConversationsFailure(error.message));
   }
 }
@@ -22,7 +22,7 @@ function* fetchChatHistorySaga(action: ReturnType<typeof fetchChatHistoryStart>)
   try {
     const messages = yield call(fetchChatHistory, action.payload);
     yield put(fetchChatHistorySuccess({ conversationId: action.payload, messages }));
-  } catch (error) {
+  } catch (error:any) {
     yield put(fetchChatHistoryFailure(error.message));
   }
 }

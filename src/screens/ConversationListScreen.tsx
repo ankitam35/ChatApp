@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { View, Text, FlatList, TouchableOpacity, StyleSheet, Button } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchConversationsStart } from '../features/chat/chatSlice';
-import { RootState } from '../app/rootReducer';
+import { fetchConversationsStart } from '../slices/chatSlice';
+import { RootState } from '../redux/rootReducer';
 
 const ConversationListScreen = ({ navigation }:any) => {
   const dispatch = useDispatch();

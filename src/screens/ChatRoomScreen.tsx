@@ -12,8 +12,8 @@ import {
   Linking,
 } from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
-import {fetchChatHistoryStart, addMessage} from '../features/chat/chatSlice';
-import {getChatHistory} from '../api/selectors';
+import {fetchChatHistoryStart, addMessage} from '../slices/chatSlice';
+import {getChatHistory} from '../selectors';
 import Clipboard from '@react-native-clipboard/clipboard';
 import {launchImageLibrary} from 'react-native-image-picker';
 
