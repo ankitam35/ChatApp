@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
+import { useDispatch, useSelector } from 'react-redux';
+import { registerUserSuccess } from '../slices/userSlice';
 
-const RegisterScreen = ({ navigation }) => {
+const RegisterScreen = ({ navigation }:any) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const dispatch = useDispatch();
+  const user = useSelector(state => state.user)
+  console.log(user)
 
   const handleRegister = () => {
-    // Perform registration logic
+    dispatch(registerUserSuccess({ username, password }));
     navigation.navigate('Login');
   };
 

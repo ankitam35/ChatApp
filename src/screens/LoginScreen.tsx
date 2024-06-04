@@ -1,11 +1,15 @@
 import React, {useState} from 'react';
 import {View, Text, TextInput, Button, StyleSheet} from 'react-native';
+import { useSelector } from 'react-redux';
 
 const LoginScreen = ({navigation}: any) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const {user} = useSelector(state => state.user)
+  console.log(user)
 
   const handleLogin = () => {
+    if (user.filter(u => u.username === username && u.password === password)) 
     navigation.navigate('Conversations');
   };
 

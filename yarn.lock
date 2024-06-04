@@ -1675,9 +1675,9 @@ __metadata:
   linkType: hard
 
 "@eslint-community/regexpp@npm:^4.5.1, @eslint-community/regexpp@npm:^4.6.1":
-  version: 4.10.0
-  resolution: "@eslint-community/regexpp@npm:4.10.0"
-  checksum: 2a6e345429ea8382aaaf3a61f865cae16ed44d31ca917910033c02dc00d505d939f10b81e079fa14d43b51499c640138e153b7e40743c4c094d9df97d4e56f7b
+  version: 4.10.1
+  resolution: "@eslint-community/regexpp@npm:4.10.1"
+  checksum: 1e04bc366fb8152c9266258cd25e3fded102f1d212a9476928e3cb98c48be645df6d676728d1c596053992fb9134879fe0de23c9460035b342cceb22d3af1776
   languageName: node
   linkType: hard
 
@@ -2919,20 +2919,20 @@ __metadata:
   linkType: hard
 
 "@types/node@npm:*":
-  version: 20.14.0
-  resolution: "@types/node@npm:20.14.0"
+  version: 20.14.1
+  resolution: "@types/node@npm:20.14.1"
   dependencies:
     undici-types: ~5.26.4
-  checksum: b62383ea004deb1b40c0612f373eaf02247381b65a90f7957dc3034dda9b5622ab61b7afafa82f67909667a5cf9ea43a0643b2a78ea295dac8b77e75e11470d7
+  checksum: 268d8ca09ce2bd6106af5eca118b06ec4c781be5b43ed1865371d0d09c5f4892353d2069bfcaf4cecc3d68a2016d730e44d9793a574c7e49bec2ba68871b94c8
   languageName: node
   linkType: hard
 
 "@types/node@npm:^18.0.0":
-  version: 18.19.33
-  resolution: "@types/node@npm:18.19.33"
+  version: 18.19.34
+  resolution: "@types/node@npm:18.19.34"
   dependencies:
     undici-types: ~5.26.4
-  checksum: b6db87d095bc541d64a410fa323a35c22c6113220b71b608bbe810b2397932d0f0a51c3c0f3ef90c20d8180a1502d950a7c5314b907e182d9cc10b36efd2a44e
+  checksum: ae6369baa1529ec3564da29611ec7eb8ccb219080d717292151b6b899820d25290243d01c9240f11a63d1a42e47198cd6310fab67b6d17bea723221fea07b644
   languageName: node
   linkType: hard
 
@@ -4460,9 +4460,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.4.668":
-  version: 1.4.788
-  resolution: "electron-to-chromium@npm:1.4.788"
-  checksum: fc48e29a860c1c448eec8c6e519192e78f60f022c66c59442f35881ec326951959c9434d90d24cc97d699f5afe4f87eeeca2ed46f82d811c9b2c12a02c5344e2
+  version: 1.4.789
+  resolution: "electron-to-chromium@npm:1.4.789"
+  checksum: 63b04e187b21f32f4ed054ef4b2e3cfcaaacd502a76834a01fec6e0aab5d50201fa33b1d6db8ed11b539b9f06566f733b889942efc91b730437b541d07ee8b78
   languageName: node
   linkType: hard
 
@@ -5220,9 +5220,9 @@ __metadata:
   linkType: hard
 
 "flow-parser@npm:0.*":
-  version: 0.237.1
-  resolution: "flow-parser@npm:0.237.1"
-  checksum: 0b65f36b043767d633f91fd3ead31c64da251133a7837b98102a88d2281a0ccbdd5e9742ae5f8e59d40dbfff960abd62054354827f7593e066b712005259e1c3
+  version: 0.237.2
+  resolution: "flow-parser@npm:0.237.2"
+  checksum: f0bb959883738e664921b2836f96a3fd3273999bdaeb067a081bfd03551ae8987947c07facd2a52cfb85ba7657498718fd659c4074505d6c1869b22ca170cb8e
   languageName: node
   linkType: hard
 
@@ -6242,15 +6242,15 @@ __metadata:
   linkType: hard
 
 "jackspeak@npm:^3.1.2":
-  version: 3.1.2
-  resolution: "jackspeak@npm:3.1.2"
+  version: 3.2.3
+  resolution: "jackspeak@npm:3.2.3"
   dependencies:
     "@isaacs/cliui": ^8.0.2
     "@pkgjs/parseargs": ^0.11.0
   dependenciesMeta:
     "@pkgjs/parseargs":
       optional: true
-  checksum: 134276d5f785c518930701a0dcba1f3b0e9ce3e5b1c3e300898e2ae0bbd9b5195088b77252bf2110768de072c426e9e39f47e13912b0b002da4a3f4ff6e16eac
+  checksum: a99542ac728e494b0f6efec1c5c7612da8d0ebfa5df7e1c01376918f3da4f3dc91573b03f58a6dce2e8a07b5d4b41a821985cc56fb5d4b1110f9d165bd361544
   languageName: node
   linkType: hard
 
