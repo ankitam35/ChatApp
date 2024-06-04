@@ -4,19 +4,20 @@ import {
   Text,
   FlatList,
   TextInput,
-  Button,
   StyleSheet,
   TouchableOpacity,
   Alert,
-  Image
+  Image,
+  Linking
 } from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import {useDispatch, useSelector} from 'react-redux';
 import {fetchChatHistoryStart, addMessage} from '../features/chat/chatSlice';
 import {getChatHistory} from '../api/selectors';
 import Clipboard from '@react-native-clipboard/clipboard';
 import {launchImageLibrary} from 'react-native-image-picker';
 
-const ChatRoomScreen = ({route}:any) => {
+const ChatRoomScreen = ({route}) => {
   const {conversationId} = route.params;
   const dispatch = useDispatch();
   const chatHistory = useSelector(getChatHistory);
@@ -42,7 +43,7 @@ const ChatRoomScreen = ({route}:any) => {
     }
   };
 
-  const handleLongPress = (message: string) => {
+  const handleLongPress = (message) => {
     Clipboard.setString(message);
     Alert.alert('', 'Copied to Clipboard');
   };
@@ -52,7 +53,7 @@ const ChatRoomScreen = ({route}:any) => {
       mediaType: 'photo',
     };
   
-    launchImageLibrary(options, (response:any) => {
+    launchImageLibrary(options, (response) => {
       if (response.didCancel) {
         console.log('User cancelled image picker');
       } else if (response.error) {
@@ -61,6 +62,11 @@ const ChatRoomScreen = ({route}:any) => {
         setImage(response.assets[0]);
       }
     });
+  };
+
+  const initiateCall = () => {
+    const phoneNumber = 'tel:';
+    Linking.openURL(phoneNumber).catch(err => console.error('Error:', err));
   };
 
   const renderItem = ({item}:any) => (
@@ -81,8 +87,8 @@ const ChatRoomScreen = ({route}:any) => {
         inverted
       />
       <View style={styles.inputContainer}>
-        <TouchableOpacity style={styles.imagePicker} onPress={selectImage}>
-          <Text style={styles.imagePickerText}>Pick Image</Text>
+        <TouchableOpacity style={styles.iconButton} onPress={selectImage}>
+          <Icon name="photo" size={30} color="#007bff" />
         </TouchableOpacity>
         <TextInput
           style={styles.input}
@@ -90,7 +96,12 @@ const ChatRoomScreen = ({route}:any) => {
           value={text}
           onChangeText={setText}
         />
-        <Button title="Send" onPress={handleSend} />
+        <TouchableOpacity style={styles.iconButton} onPress={handleSend}>
+          <Icon name="send" size={30} color="#007bff" />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.iconButton} onPress={initiateCall}>
+          <Icon name="call" size={30} color="#007bff" />
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -103,6 +114,7 @@ const styles = StyleSheet.create({
   },
   inputContainer: {
     flexDirection: 'row',
+    alignItems: 'center',
     padding: 16,
     borderTopWidth: 1,
     borderTopColor: '#ccc',
@@ -111,7 +123,7 @@ const styles = StyleSheet.create({
     flex: 1,
     borderColor: 'gray',
     borderWidth: 1,
-    marginRight: 8,
+    marginHorizontal: 8,
     padding: 8,
   },
   myMessage: {
@@ -128,16 +140,8 @@ const styles = StyleSheet.create({
     margin: 4,
     borderRadius: 8,
   },
-  imagePicker: {
+  iconButton: {
     padding: 10,
-    backgroundColor: '#007bff',
-    borderRadius: 5,
-    alignItems: 'center',
-    marginVertical: 10,
-  },
-  imagePickerText: {
-    color: '#fff',
-    fontSize: 16,
   },
   image: {
     width: 100,

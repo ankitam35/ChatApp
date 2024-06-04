@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchConversationsStart } from '../features/chat/chatSlice';
 import { RootState } from '../app/rootReducer';
 
-const ConversationListScreen = ({ navigation }) => {
+const ConversationListScreen = ({ navigation }:any) => {
   const dispatch = useDispatch();
   const conversations = useSelector((state: RootState) => state.chat.conversations);
   const loading = useSelector((state: RootState) => state.chat.loading);
@@ -13,7 +13,7 @@ const ConversationListScreen = ({ navigation }) => {
     dispatch(fetchConversationsStart());
   }, [dispatch]);
 
-  const renderItem = ({ item }) => (
+  const renderItem = ({ item }:any) => (
     <TouchableOpacity
       style={styles.conversationItem}
       onPress={() => navigation.navigate('ChatRoom', { conversationId: item.id })}

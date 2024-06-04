@@ -27,7 +27,9 @@ const LoginScreen = ({ navigation }) => {
         onChangeText={setPassword}
       />
       <Button title="Login" onPress={handleLogin} />
-      <Button title="Register" onPress={() => navigation.navigate('Register')} />
+      <View style={styles.marginTop5}>
+        <Button title="Register"  onPress={() => navigation.navigate('Register')} />
+      </View>
     </View>
   );
 };
@@ -49,6 +51,9 @@ const styles = StyleSheet.create({
     marginBottom: 12,
     padding: 8,
   },
+  marginTop5: {
+    marginTop: 5
+  }
 });
 
 export default LoginScreen;

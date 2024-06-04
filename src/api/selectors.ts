@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect';
 
-const getChatState = (state) => state.chat;
+const getChatState = (state: { chat: any; }) => state.chat;
 
 export const getChatHistory = createSelector(
   [getChatState],
